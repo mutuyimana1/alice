@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-
+import * as ioIcons from "react-icons/io";
+import * as rxIcons from "react-icons/rx";
+import "./header.css"
 const NavBar = () => {
+    const [isNavBar,setIsNavBar]=useState(false)
+    const showNavBar=()=>{
+        setIsNavBar(!isNavBar);
+    }
     return (
         <>
-        <ul className="flex gap-2 float-right absolute right-60 font-normal text-base pt-4">
+        <div onClick={showNavBar} className="mobile float-right mr-3 mt-2" >
+        {isNavBar ? <ioIcons.IoIosCloseCircleOutline size={30}/>:<rxIcons.RxHamburgerMenu size={25} />}
+        </div>
+        <ul className={`${isNavBar?"navBar-active":"nav-bar"} gap-5 lgs:max-2xlh:right-[24rem]  float-right absolute  font-normal text-[10px] md:text-base xl:text-lg 2xl:text-xl  pt-4 `}>
             <li> 
                 <Link to="/"> Home </Link>
             </li>
@@ -21,7 +30,8 @@ const NavBar = () => {
                 <Link to="/featured"> Featured </Link>
             </li>
         </ul>
-        <h1>.</h1>
+        
+        
         </>
     );
 };

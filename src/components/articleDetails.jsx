@@ -6,7 +6,7 @@ import logoImage from "../assets/images/Ellipse 4.png";
 import AiImage from "../assets/images/Rectangle 10.png";
 import AiImageTwo from "../assets/images/Rectangle 11.png";
 import NavBar from "./navBar";
-
+import "./header.css"
 const ArticleDetails = () => {
     const [countLike,setCountLike]=useState(0);
     const HandleCount=()=>{
@@ -20,13 +20,14 @@ const ArticleDetails = () => {
         strokeWidth={3}
         cellWidth2={12}
       >
+      <div className="detailsContainer">
         <NavBar />
         <div className="flex gap-5 mx-40 my-10">
-          <h2 className="text-[29px] font-medium pt-5">Jan.2023</h2>
+          <h2 className="text-xl font-medium pt-5">Jan.2023</h2>
           <img src={logoImage} alt="" className="rounded-full"/>
         </div>
         <div className="mt-10 mx-10">
-          <h1 className="font-bold text-[29px] text-center ">
+          <h1 className="font-bold text-xl text-center ">
             Discover Power of AI
           </h1>
           <div className="flex gap-10 mt-10">
@@ -34,7 +35,7 @@ const ArticleDetails = () => {
               <img src={AiImage} width={300} alt="" />
             </div>
             <div>
-              <p className="font-normal text-[29px] font-roboto ">
+              <p className="font-normal text-xl font-roboto ">
                 RoleReference site about Lorem Ipsum, giving information on its
                 origins, well as a random Lipsum generatorm Reference site about
                 Lorem Ipsum, giving information on its origins, as well
@@ -43,12 +44,12 @@ const ArticleDetails = () => {
           </div>
           <div className=" mt-10">
             <div>
-              <p className="font-normal text-[29px] font-roboto ">
+              <p className="font-normal text-xl font-roboto ">
                 RoleReference site about Lorem Ipsum, giving information on its
                 origins, well as a random Lipsum generatorm Reference site about
                 Lorem Ipsum, giving information on its origins, as well
               </p>
-              <p className="font-normal text-[29px] font-roboto pt-20">
+              <p className="font-normal text-xl font-roboto pt-20">
                 RoleReference site about Lorem Ipsum, giving information on its
                 origins, well as a random Lipsum generatorm Reference site about
                 Lorem Ipsum, giving information on its origins, as well
@@ -59,12 +60,12 @@ const ArticleDetails = () => {
             </div>
           </div>
           <div className=" mt-10">
-              <p className="font-normal text-[29px] font-roboto ">
+              <p className="font-normal text-xl font-roboto ">
                 RoleReference site about Lorem Ipsum, giving information on its
                 origins, well as a random Lipsum generatorm Reference site about
                 Lorem Ipsum, giving information on its origins, as well
               </p>
-              <p className="font-normal text-[29px] font-roboto pt-2">
+              <p className="font-normal text-xl font-roboto pt-2">
                 RoleReference site about Lorem Ipsum, giving information on its
                 origins, well as a random Lipsum generatorm Reference site about
                 Lorem Ipsum, giving information on its origins, as well
@@ -75,6 +76,7 @@ const ArticleDetails = () => {
             <aiIcons.AiOutlineLike size={20} onClick={HandleCount}/><span>{countLike}</span>
 
           </div>
+        </div>
         </div>
         
       </GridLines>
