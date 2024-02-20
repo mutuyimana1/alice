@@ -11,10 +11,10 @@ import { articles, information } from "../data/data";
 import { Collapse } from 'antd';
 import App from "./test";
 const AboutMe = () => {
-  const [activePanelKey, setActivePanelKey] = useState(null); // State to keep track of the currently active panel key
+  const [activePanelKey, setActivePanelKey] = useState(null); 
   const navigate = useNavigate();
   const handleViewProjectDetails = (key) => {
-    setActivePanelKey(prevKey => (prevKey === key ? null : key)); // Toggle the active panel key
+    setActivePanelKey(prevKey => (prevKey === key ? null : key)); 
   };
   const text = `
     A dog is a type of domesticated animal.
@@ -38,7 +38,7 @@ const AboutMe = () => {
         <div className="bg-greay-500">
           <Card
             name={info?.title}
-            onClick={() => handleViewProjectDetails(index.toString())} // Pass the panel key to the click handler
+            onClick={() => handleViewProjectDetails(index.toString())} 
             details={info?.discription}
             image={info?.image}
           />
