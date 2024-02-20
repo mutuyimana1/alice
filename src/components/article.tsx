@@ -3,7 +3,7 @@ import React from "react"
 const Article=({ content, date, view, like,onClick })=>{
     return(
         <>
-        <div className="w-[100%] 2xl:w-[49%]   cursor-pointer" onClick={onClick} >
+        <div className="w-[100%] 2xl:dw-[49%]   cursor-pointer" onClick={onClick} >
             <p className="font-bold text-[20px] font-roboto">
                 {content}
                 </p>

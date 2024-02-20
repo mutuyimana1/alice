@@ -4,29 +4,64 @@ import DownIcon from "../assets/images/icons/Group 15.svg";
 import AboutImage from "../assets/images/icons/pencilsketchadjusted-7208867 1.svg";
 import Card from "./card";
 import Article from "./article";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ProjectDetails from "./projectDetails";
-import projectImage from "../assets/images/pexels-photo-2808402.jpeg"
-import AiImage from "../assets/images/pexels-photo-8036979.jpeg"
-import AiPowerImage from "../assets/images/pexels-photo-7773535.jpeg"
+import Projects from "./projects";
+import { articles, information } from "../data/data";
+import { Collapse } from 'antd';
 import App from "./test";
 const AboutMe = () => {
-  const [viewProjectDetails, setViewProjectDetails] = useState(false);
-  const handleViewProjectDetails = () => {
-    setViewProjectDetails(true);
+  const [activePanelKey, setActivePanelKey] = useState(null); // State to keep track of the currently active panel key
+  const navigate = useNavigate();
+  const handleViewProjectDetails = (key) => {
+    setActivePanelKey(prevKey => (prevKey === key ? null : key)); // Toggle the active panel key
   };
+  const text = `
+    A dog is a type of domesticated animal.
+    Known for its loyalty and faithfulness,
+    it can be found as a welcome guest in many households across the world.
+    A dog is a type of domesticated animal.
+    Known for its loyalty and faithfulness,
+    it can be found as a welcome guest in many households across the world.
+    A dog is a type of domesticated animal.
+    Known for its loyalty and faithfulness,
+    it can be found as a welcome guest in many households across the world.
+  `;
+
+  const collapsePanels = information.map((info, index) => ({
+    key: index.toString(),
+    label: (
+      <div
+        className="grid bg-bluef-400 w-f64 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-20 ml-[5%] md:ml-[2%] 2xl:ml-[8%]"
+        key={index}
+      >
+        <div className="bg-greay-500">
+          <Card
+            name={info?.title}
+            onClick={() => handleViewProjectDetails(index.toString())} // Pass the panel key to the click handler
+            details={info?.discription}
+            image={info?.image}
+          />
+        </div>
+      </div>
+    ),
+    children: (
+      <p className="w-full bg-reed-400 p-2 text-gray-3e00 text-lg font-medium">{text}</p>
+    ),
+  }));
+
   return (
     <>
-      <div className=" top-[44rem] md:top-[57rem] 2xl:top-[60rem] absolute w-full " id="about">
-        <h1 className="font-bold text-xl xl:text-[2rem] 2xl:pt-6 text-center ">
+      <div className=" top-[44rem] md:top-[60rem] 2xl:top-[62rem] absolute w-full " id="about">
+        <h1 className="font-bold text-xl xl:text-[2rem] 2xl:pt-20 text-center ">
           Who is Rene?
         </h1>
         <hr className="w-10 lg:w-20 2xl:w-32 h-[1px] mx-auto my-4 bg-black border-0 rounded" />
-        <div className="block lg:flex gap-0 2xl:gap-10 ml-1 xl:ml-32 mr-10">
-          <div className=" ml-[25%] md:ml-[25%] xl:ml-[5%] w-[16rem] md:w-[40rem] xl:w-[32rem] 2xl:w-[40rem] ">
+        <div className="block lg:flex gap-0 2xl:gap-20 ml-1 xl:ml-32 mr-20">
+          <div className=" ml-[25%] md:ml-[25%] xl:ml-[5%] w-[16rem] md:w-[40rem] xl:w-[32rem] 2xl:w-[40rem] mt-10 ">
             <img src={AboutImage} alt="" className="w-full" />
           </div>
-          <div className="mt-10 ml-[10%] md:ml-[12%] xl:mt-28 2xl:mt-32">
+          <div className="mt-20  xl:mt-28 2xl:mt-[16rem]">
             <h1 className=" text-sm md:text-[1.2rem] xl:text-[1.7rem] font-bold uppercase">
               Ntirenganya Rene Promesse{" "}
               <span className="text-sm md:text-[16px] lg:text-[1.2rem] 2xl:text-[1.4rem] font-normal capitalize">
@@ -48,95 +83,76 @@ const AboutMe = () => {
           </div>
         </div>
         <div className=" w-full ">
-          <div className="float-right mr-20">
+          {/* <div className="float-right mr-20">
             <h1 className="font-bold text-base xl:text-[1.7rem] 2xl:text-[2rem]  text-center">
               Explore More
             </h1>
             <hr className="w-10 2xl:w-28 h-[1px] mx-auto my-4 bg-black border-0 rounded" />
-          </div>
+          </div> */}
 
           <div className=" mt-20 ml-0 xl:ml-32 ">
             <h1 className="font-bold text-base xl:text-[1.6rem] 2xl:text-[2rem]  text-center">
               What has he done?
             </h1>
-          
+
             <hr className="w-10 2xl:w-32 h-[1px] mx-auto my-4 bg-black border-0 rounded" />
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-10 mt-20 ml-[5%] md:ml-[2%] 2xl:ml-[8%]">
-              <Card name="Power of AI" onClick={handleViewProjectDetails} details="Lorem ipsum dolor sit amet, consectetur adipiscing elit. " image={projectImage}/>
-              <Card name="Power of AI" onClick={handleViewProjectDetails} details="Lorem ipsum dolor sit amet, consectetur adipiscing elit. " image={projectImage}/>
-              <Card name="AI vs Human" onClick={handleViewProjectDetails} details="Lorem ipsum dolor sit amet, consectetur adipiscing elit. " image={AiImage}/>
-              <Card name="Natural " onClick={handleViewProjectDetails} details="Lorem ipsum dolor sit amet, consectetur adipiscing elit. " image={AiPowerImage}/>
-              <Card name="Natural " onClick={handleViewProjectDetails} details="Lorem ipsum dolor sit amet, consectetur adipiscing elit. " image={AiPowerImage}/>
-            </div>
-          {viewProjectDetails&& <ProjectDetails/>}
-          {viewProjectDetails && <div className="mt-10 ml-10">
-              <img
-                src={DownIcon}
-                alt=""
-                onClick={() => setViewProjectDetails(false)}
-                width={30}
-                className="m-auto"
-              />
-            </div>}
-          
-          
-         
+          </div>
+          <Collapse ghost activeKey={activePanelKey} onChange={setActivePanelKey} className="grid w-full grid-cols-3 lg:grid-cols-4">
+            {collapsePanels.map(panel => (
+              <Collapse.Panel key={panel.key} header={panel.label} showArrow={false} className="bg-bleue-400">
+                {panel.children}
+              </Collapse.Panel>
+            ))}
+          </Collapse>
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-10 mt-20 ml-[5%] md:ml-[2%] 2xl:ml-[8%]">
+            {information.map((info) => (
+              <>
+                <Card name={info?.title} onClick={handleViewProjectDetails} details={info?.discription} image={info?.image} />
+              </>
+            ))}
+          </div> */}
+
+          {/* {viewProjectDetails && <div className="mt-10 ml-10">
+            <img
+              src={DownIcon}
+              alt=""
+              onClick={() => setViewProjectDetails(false)}
+              width={30}
+              className="m-auto"
+            />
+          </div>} */}
+
+
+
         </div>
-          <>
-            <div >
+        <>
+          <div >
             <div className=" mt-20 ">
-            <h1 className="font-bold text-[28px] 2xl:text-[2rem] text-center">
-              What has he Wrote?
-            </h1>
+              <h1 className="font-bold text-[28px] 2xl:text-[2rem] text-center">
+                What has he Wrote?
+              </h1>
             </div>
             <hr className="w-64 h-[1px] mx-auto my-4 bg-black border-0 rounded" />
-              <div className="mt-20 mx-10 md:ml-32 md:mr-20 lg:flex justify-between ">
-                <Article
-                  content="Writing a Lorem ipum text, one which can be 
-translated in Kinyarwanda"
-                  date="January 21, 2023"
-                  like={{icon:null, count:null}}
-                />
-                <Article
-                  content="Writing a Lorem ipum text, one which can be 
-translated in Kinyarwanda"
-                  date="January 21, 2023" like={{icon:null, count:null}}
-                />
-              </div>
-              <div className="mt-10 mx-10 md:ml-32 md:mr-20 lg:flex justify-between">
-                <Article
-                  content="Writing a Lorem ipum text, one which can be 
-translated in Kinyarwanda"
-                  date="January 21, 2023" like={{icon:null, count:null}}
-                />
-                <Article
-                  content="Writing a Lorem ipum text, one which can be 
-translated in Kinyarwanda"
-                  date="January 21, 2023" like={{icon:null, count:null}}
-                />
-              </div>
-              <div className="mt-10 mx-10 md:ml-32 md:mr-20  lg:flex justify-between">
-                <Article
-                  content="Writing a Lorem ipum text, one which can be 
-translated in Kinyarwanda"
-                  date="January 21, 2023" like={{icon:null, count:null}}
-                />
-                <Article
-                  content="Writing a Lorem ipum text, one which can be 
-translated in Kinyarwanda"
-                  date="January 21, 2023" like={{icon:null, count:null}}
-                />
-              </div>
+            <div className="mt-20 mx-10 md:ml-32 md:mr-20 lg:fdlex grid grid-cols-2 justsify-between gap-10">
+              {articles.map((el) => (
+                <Link to={"/article/details"}>
+                  <Article
+                    content={el?.content}
+                    date="January 21, 2023"
+                    like={{ icon: null, count: null }}
+                  />
+                </Link>
+              ))}
             </div>
+          </div>
           <Link to="/articles">  <div className="float-right mr-20 mt-10 " >
             <h1 className="font-bold text-[20px]  text-center">
               Explore More
             </h1>
             <hr className="w-28 h-[1px] mx-auto my-4 bg-black border-0 rounded" />
-          </div></Link> 
-          </>
-          {/* <App/> */}
+          </div></Link>
+        </>
+        {/* <App/> */}
       </div>
     </>
   );
