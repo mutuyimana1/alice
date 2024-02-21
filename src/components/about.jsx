@@ -17,15 +17,7 @@ const AboutMe = () => {
     setActivePanelKey(prevKey => (prevKey === key ? null : key)); 
   };
   const text = `
-    A dog is a type of domesticated animal.
-    Known for its loyalty and faithfulness,
-    it can be found as a welcome guest in many households across the world.
-    A dog is a type of domesticated animal.
-    Known for its loyalty and faithfulness,
-    it can be found as a welcome guest in many households across the world.
-    A dog is a type of domesticated animal.
-    Known for its loyalty and faithfulness,
-    it can be found as a welcome guest in many households across the world.
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu dui odio. Suspendisse pretium enim non turpis vulputate commodo. Vivamus maximus velit justo, in maximus nulla faucibus quis. Nam rhoncus molestie eros sit amet tempor. Praesent at erat nibh. Duis nunc dolor, fringilla quis justo in, cursus bibendum metus. Maecenas porttitor odio a pharetra malesuada. Morbi eget commodo libero. Nulla dapibus porttitor lorem nec dapibus. Vestibulum posuere, ante sagittis laoreet bibendum, velit nulla suscipit sem, at rhoncus magna turpis at velit. Sed finibus nibh metus, ut vestibulum ligula vehicula vitae. Ut sit amet euismod odio. Donec sed eleifend enim. In pretium libero non metus posuere, vel vestibulum neque varius.
   `;
 
   const collapsePanels = information.map((info, index) => ({
@@ -152,7 +144,6 @@ const AboutMe = () => {
             <hr className="w-28 h-[1px] mx-auto my-4 bg-black border-0 rounded" />
           </div></Link>
         </>
-        {/* <App/> */}
       </div>
     </>
   );
