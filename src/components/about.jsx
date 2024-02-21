@@ -1,20 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as aiIcons from "react-icons/ai";
 import DownIcon from "../assets/images/icons/Group 15.svg";
 import AboutImage from "../assets/images/icons/pencilsketchadjusted-7208867 1.svg";
 import Card from "./card";
 import Article from "./article";
+import TextTruncate from 'react-text-truncate';
 import { Link, useNavigate } from "react-router-dom";
 import ProjectDetails from "./projectDetails";
 import Projects from "./projects";
 import { articles, information } from "../data/data";
+
 import { Collapse } from 'antd';
 import App from "./test";
+// import TypingEffect from "./typing";
 const AboutMe = () => {
-  const [activePanelKey, setActivePanelKey] = useState(null); 
+  const [activePanelKey, setActivePanelKey] = useState(null);
+  const [texts, settexts] = useState("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu dui odio. Suspendisse pretium enim non turpis vulputate commodo. Vivamus maximus velit justo, in maximus nulla faucibus quis. Nam rhoncus molestie eros sit amet tempor. Praesent at erat nibh. Duis nunc dolor, fringilla quis justo in, cursus bibendum metus. Maecenas porttitor odio a pharetra malesuada. Morbi eget commodo libero. Nulla dapibus porttitor lorem nec dapibus. Vestibulum posuere, ante sagittis laoreet bibendum, velit nulla suscipit sem, at rhoncus magna turpis at velit. Sed finibus nibh metus, ut vestibulum ligula vehicula vitae. Ut sit amet euismod odio. Donec sed eleifend enim. In pretium libero non metus posuere, vel vestibulum neque varius.");
+    const [displaytexts, setDisplaytexts] = useState("");
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        const typingInterval = setInterval(() => {
+            if (index < texts.length) {
+                setDisplaytexts(prevDisplaytexts => prevDisplaytexts + texts.charAt(index));
+                setIndex(prevIndex => prevIndex + 1);
+            } else {
+                clearInterval(typingInterval);
+            }
+        }, 20); 
+
+        return () => {
+            clearInterval(typingInterval);
+        };
+    }, [index, texts]);
+
   const navigate = useNavigate();
   const handleViewProjectDetails = (key) => {
-    setActivePanelKey(prevKey => (prevKey === key ? null : key)); 
+    setActivePanelKey(prevKey => (prevKey === key ? null : key));
   };
   const text = `
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu dui odio. Suspendisse pretium enim non turpis vulputate commodo. Vivamus maximus velit justo, in maximus nulla faucibus quis. Nam rhoncus molestie eros sit amet tempor. Praesent at erat nibh. Duis nunc dolor, fringilla quis justo in, cursus bibendum metus. Maecenas porttitor odio a pharetra malesuada. Morbi eget commodo libero. Nulla dapibus porttitor lorem nec dapibus. Vestibulum posuere, ante sagittis laoreet bibendum, velit nulla suscipit sem, at rhoncus magna turpis at velit. Sed finibus nibh metus, ut vestibulum ligula vehicula vitae. Ut sit amet euismod odio. Donec sed eleifend enim. In pretium libero non metus posuere, vel vestibulum neque varius.
@@ -30,7 +52,7 @@ const AboutMe = () => {
         <div className="bg-greay-500">
           <Card
             name={info?.title}
-            onClick={() => handleViewProjectDetails(index.toString())} 
+            onClick={() => handleViewProjectDetails(index.toString())}
             details={info?.discription}
             image={info?.image}
           />
@@ -38,14 +60,14 @@ const AboutMe = () => {
       </div>
     ),
     children: (
-      <p className="w-full bg-reed-400 p-2 text-gray-3e00 text-lg font-medium">{text}</p>
+      <p>{text}</p>
     ),
   }));
 
   return (
     <>
-      <div className=" top-[44rem] md:top-[60rem] 2xl:top-[62rem] absolute w-full " id="about">
-        <h1 className="font-bold text-xl xl:text-[2rem] 2xl:pt-20 text-center ">
+      <div className=" top-[44rem] md:top-[60rem] 2xl:top-[62rem] absolute w-full" id="about">
+        <h1 className="font-bold text-xl xl:text-[2rem] 2xl:pt-20 text-center">
           Who is Rene?
         </h1>
         <hr className="w-10 lg:w-20 2xl:w-32 h-[1px] mx-auto my-4 bg-black border-0 rounded" />
@@ -83,16 +105,26 @@ const AboutMe = () => {
           </div> */}
 
           <div className=" mt-20 ml-0 xl:ml-32 ">
+            {/* <TypingEffect/> */}
             <h1 className="font-bold text-base xl:text-[1.6rem] 2xl:text-[2rem]  text-center">
               What has he done?
             </h1>
 
             <hr className="w-10 2xl:w-32 h-[1px] mx-auto my-4 bg-black border-0 rounded" />
           </div>
-          <Collapse ghost activeKey={activePanelKey} onChange={setActivePanelKey} className="grid w-full grid-cols-3 lg:grid-cols-4">
+          <Collapse ghost activeKey={activePanelKey} onChange={setActivePanelKey} className="grid w-full grid-cols-3 2xl:gridd-cols-4">
             {collapsePanels.map(panel => (
-              <Collapse.Panel key={panel.key} header={panel.label} showArrow={false} className="bg-bleue-400">
-                {panel.children}
+              <Collapse.Panel key={panel.key} header={panel.label} showArrow={false}>
+                <div id="typing-texts" className="px-7 py-7 text-lg font-normal shadow-md w-full"> 
+                   {/* {panel.children} */}
+                  <TextTruncate
+                    line={8}
+                    element="span"
+                    truncateText=" …"
+                    text={displaytexts}
+                    textTruncateChild={<a href="/article/details" className="text-[#605BFF] ">Read More</a>}
+                  />
+                </div>
               </Collapse.Panel>
             ))}
           </Collapse>
@@ -119,6 +151,7 @@ const AboutMe = () => {
         </div>
         <>
           <div >
+          
             <div className=" mt-20 ">
               <h1 className="font-bold text-[28px] 2xl:text-[2rem] text-center">
                 What has he Wrote?
