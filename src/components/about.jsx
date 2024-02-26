@@ -46,7 +46,7 @@ const AboutMe = () => {
     key: index.toString(),
     label: (
       <div
-        className="mt-20 ml-[5%] md:ml-[2%] 2xl:ml-[8%]"
+        className="mt-20 ml-[5%] md:ml-[2%] 2xl:ml-[3%]"
         key={index}
       >
           <Card
@@ -94,7 +94,7 @@ const AboutMe = () => {
             </ul>
           </div>
         </div>
-        <div className=" w-full ">
+        <div className=" w-full">
           <div className=" mt-20 ml-0 xl:ml-32 ">
             <h1 className="font-bold text-base xl:text-[1.6rem] 2xl:text-[2rem]  text-center">
               What has he done?
