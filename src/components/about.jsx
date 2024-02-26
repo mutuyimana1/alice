@@ -46,7 +46,7 @@ const AboutMe = () => {
     key: index.toString(),
     label: (
       <div
-        className="grid bg-blu4e-400 w-f64 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-20 ml-[5%] md:ml-[2%] 2xl:ml-[8%]"
+        className="mt-20 ml-[5%] md:ml-[2%] 2xl:ml-[8%]"
         key={index}
       >
           <Card
@@ -102,7 +102,7 @@ const AboutMe = () => {
 
             <hr className="w-10 2xl:w-32 h-[1px] mx-auto my-4 bg-black border-0 rounded" />
           </div>
-          <Collapse ghost activeKey={activePanelKey} onChange={setActivePanelKey} className="grid w-full grid-cols-3 2xl:gridd-cols-4">
+          <Collapse ghost activeKey={activePanelKey} onChange={setActivePanelKey} className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
             {collapsePanels.map(panel => (
               <Collapse.Panel key={panel.key} header={panel.label} showArrow={false}>
                 <div id="typing-texts" className="px-7 py-7 text-lg font-normal shadow-md w-full"> 

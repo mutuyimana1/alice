@@ -26,7 +26,7 @@ const Header = () => {
         </p>
         <hr class="w-44 2xl:w-64 h-[1px] my-4 bg-black border-0 rounded" />
         </div>
-        <div className="ml-[10rem] sm:ml-[20rem] md:ml-[25rem] xl:ml-[29rem] 2xl:ml-[42rem] lgs:max-2xl:ml-[28rem] mt-9 md:mt-10" >
+        <div className="ml-[7rem] sm:ml-[10rem] md:ml-[25rem] xl:ml-[29rem] 2xl:ml-[42rem] lgs:max-2xl:ml-[28rem] mt-9 md:mt-10" >
          <a href="#about"><img src={upIcon} alt="" width={60} /></a> 
             {/* <faIcons.FaChevronCircleDown  size={30} color="white" fill="#D9D9D9" /> */}
         </div>
