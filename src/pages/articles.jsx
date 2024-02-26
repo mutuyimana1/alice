@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import "../styles/index.css"
-import NavBar from "../components/navBar"
 import DownIcon from "../assets/images/icons/Group 15.svg";
 import upIcon from "../assets/images/icons/Group 14.svg"
 import Article from "../components/article";
 import * as aiIcons from "react-icons/ai"
 import { useNavigate } from "react-router-dom";
+import Head from "../components/new";
 const Articles=()=>{
 
     const months = [
@@ -75,7 +75,7 @@ const Articles=()=>{
         <>
         <div className="bg-[#F5F5F5]  w-full pb-20">
         <div className="article-header">
-            <NavBar/>
+        <Head/>
         <h1 className="text-center text-white pt-40 text-[30px]">Articles</h1>
         </div>
         <div className="mx-[118px] py-5 my-10 flex justify-between ">

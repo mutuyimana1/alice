@@ -46,17 +46,15 @@ const AboutMe = () => {
     key: index.toString(),
     label: (
       <div
-        className="grid bg-bluef-400 w-f64 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-20 ml-[5%] md:ml-[2%] 2xl:ml-[8%]"
+        className="grid bg-blu4e-400 w-f64 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-20 ml-[5%] md:ml-[2%] 2xl:ml-[8%]"
         key={index}
       >
-        <div className="bg-greay-500">
           <Card
             name={info?.title}
             onClick={() => handleViewProjectDetails(index.toString())}
             details={info?.discription}
             image={info?.image}
           />
-        </div>
       </div>
     ),
     children: (
@@ -75,7 +73,7 @@ const AboutMe = () => {
           <div className=" ml-[25%] md:ml-[25%] xl:ml-[5%] w-[16rem] md:w-[40rem] xl:w-[32rem] 2xl:w-[40rem] mt-10 ">
             <img src={AboutImage} alt="" className="w-full" />
           </div>
-          <div className="mt-20  xl:mt-28 2xl:mt-[16rem]">
+          <div className="mt-20 pl-10 lg:pl-0 xl:mt-28 2xl:mt-[16rem]">
             <h1 className=" text-sm md:text-[1.2rem] xl:text-[1.7rem] font-bold uppercase">
               Ntirenganya Rene Promesse{" "}
               <span className="text-sm md:text-[16px] lg:text-[1.2rem] 2xl:text-[1.4rem] font-normal capitalize">
@@ -97,15 +95,7 @@ const AboutMe = () => {
           </div>
         </div>
         <div className=" w-full ">
-          {/* <div className="float-right mr-20">
-            <h1 className="font-bold text-base xl:text-[1.7rem] 2xl:text-[2rem]  text-center">
-              Explore More
-            </h1>
-            <hr className="w-10 2xl:w-28 h-[1px] mx-auto my-4 bg-black border-0 rounded" />
-          </div> */}
-
           <div className=" mt-20 ml-0 xl:ml-32 ">
-            {/* <TypingEffect/> */}
             <h1 className="font-bold text-base xl:text-[1.6rem] 2xl:text-[2rem]  text-center">
               What has he done?
             </h1>
@@ -116,37 +106,12 @@ const AboutMe = () => {
             {collapsePanels.map(panel => (
               <Collapse.Panel key={panel.key} header={panel.label} showArrow={false}>
                 <div id="typing-texts" className="px-7 py-7 text-lg font-normal shadow-md w-full"> 
-                   {/* {panel.children} */}
-                  <TextTruncate
-                    line={8}
-                    element="span"
-                    truncateText=" …"
-                    text={displaytexts}
-                    textTruncateChild={<a href="/article/details" className="text-[#605BFF] ">Read More</a>}
-                  />
+                 
+                  {panel.children}
                 </div>
               </Collapse.Panel>
             ))}
           </Collapse>
-          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-10 mt-20 ml-[5%] md:ml-[2%] 2xl:ml-[8%]">
-            {information.map((info) => (
-              <>
-                <Card name={info?.title} onClick={handleViewProjectDetails} details={info?.discription} image={info?.image} />
-              </>
-            ))}
-          </div> */}
-
-          {/* {viewProjectDetails && <div className="mt-10 ml-10">
-            <img
-              src={DownIcon}
-              alt=""
-              onClick={() => setViewProjectDetails(false)}
-              width={30}
-              className="m-auto"
-            />
-          </div>} */}
-
-
 
         </div>
         <>
@@ -158,7 +123,7 @@ const AboutMe = () => {
               </h1>
             </div>
             <hr className="w-64 h-[1px] mx-auto my-4 bg-black border-0 rounded" />
-            <div className="mt-20 mx-10 md:ml-32 md:mr-20 lg:fdlex grid grid-cols-2 justsify-between gap-10">
+            <div className="mt-20 mx-10 md:ml-32 md:mr-20 lg:fdlex grid grid-cols-1 md:grid-cols-2 justsify-between gap-10">
               {articles.map((el) => (
                 <Link to={"/article/details"}>
                   <Article
