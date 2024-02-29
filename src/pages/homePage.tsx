@@ -9,7 +9,10 @@ const HomePage=()=>{
         <>
         <div className="h-[100vh] w-full bg-[#EFEFEF]  ">
         {/* <NavBar/> */}
+        <div className="w-full ">
+
         <Head/>
+        </div>
         <Header/>
         <AboutMe/>
         </div>

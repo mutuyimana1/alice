@@ -37,12 +37,12 @@ body {
     box-shadow: 4px rgba(0, 0, 0, 0.493);
     text-transform: uppercase;
     font-family: 'Rubik Puddles';
-    top: 40%;
+    top: 65%;
     text-orientation: sideways;
     height: 100%;
     word-spacing: 60px;
     -webkit-text-stroke: 2px white;
-    transform: translate(0, -50%) rotate(180deg);
+    transform: translate(0, -50%) rotate(0deg);
     position: absolute;
     -webkit-writing-mode: vertical-rl;
 }
