@@ -64,7 +64,7 @@ const AboutMe = () => {
 
   return (
     <>
-      <div className=" top-[44rem] md:top-[60rem] 2xl:top-[62rem] absolute w-full" id="about">
+      <div className=" top-[55rem] md:top-[60rem] 2xl:top-[62rem] absolute w-full" id="about">
         <h1 className="font-bold text-xl xl:text-[2rem] 2xl:pt-20 text-center">
           Who is Rene?
         </h1>
@@ -100,7 +100,7 @@ const AboutMe = () => {
               What has he done?
             </h1>
 
-            <hr className="w-10 2xl:w-32 h-[1px] mx-auto my-4 bg-black border-0 rounded" />
+            <hr className="w-10 2xl:w-32 h-[1px] mx-auto my-4 bg-black border-0 rounded"/>
           </div>
           <Collapse ghost activeKey={activePanelKey} onChange={setActivePanelKey} className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
             {collapsePanels.map(panel => (

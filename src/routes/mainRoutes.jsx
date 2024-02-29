@@ -3,6 +3,7 @@ import App from "../App";
 import HomePage from "../pages/homePage";
 import Articles from '../pages/articles';
 import ArticleDetails from '../components/articleDetails';
+import SmallScreenHeader from '../components/smallScreenHeader';
 
 const MainRouter = () => {
   return (
@@ -10,6 +11,7 @@ const MainRouter = () => {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/articles" element={<Articles/>}/>
+      <Route path="/mobile" element={<SmallScreenHeader/>}/>
       <Route path="/article/details" element={<ArticleDetails/>}/>
     </Routes>
     </Router>
