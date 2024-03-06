@@ -82,14 +82,11 @@ const AboutMe = () => {
             </h1>
             <ul className=" md:text-[1.1rem] lg:text-[1.2rem] 2xl:text-[1.5rem] font-medium ml-5 lg:ml-0 2xl:ml-10 text-black list-disc py-3 ">
               <li className="py-1">
-                Software Engineer currently working at Codeland s.r.l
+                Software Engineer currently working at Samphone
               </li>
               <li className="py-1">
                 Researcher, currently working on solving the complexity of how
                 machines can understand Kinyarwanda
-              </li>
-              <li className="py-1">
-                Founder of KASUKU, a Kinyarwandan Personal Assistant
               </li>
             </ul>
           </div>
