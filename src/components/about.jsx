@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as aiIcons from "react-icons/ai";
 import DownIcon from "../assets/images/icons/Group 15.svg";
-import AboutImage from "../assets/images/icons/pencilsketchadjusted-7208867 1.svg";
+import AboutImage from "../assets/images/pexels-mahdi-chaghari-12975826.jpg";
 import Card from "./card";
 import Article from "./article";
 import TextTruncate from 'react-text-truncate';
@@ -66,7 +66,7 @@ const AboutMe = () => {
     <>
       <div className=" top-[55rem] md:top-[60rem] 2xl:top-[62rem] absolute w-full" id="about">
         <h1 className="font-bold text-xl xl:text-[2rem] 2xl:pt-20 text-center">
-          Who is Rene?
+          Who is Alice?
         </h1>
         <hr className="w-10 lg:w-20 2xl:w-32 h-[1px] mx-auto my-4 bg-black border-0 rounded" />
         <div className="block lg:flex gap-0 2xl:gap-20 ml-1 xl:ml-32 mr-20">
@@ -75,7 +75,7 @@ const AboutMe = () => {
           </div>
           <div className="mt-20 pl-10 lg:pl-0 xl:mt-28 2xl:mt-[16rem]">
             <h1 className=" text-sm md:text-[1.2rem] xl:text-[1.7rem] font-bold uppercase">
-              Ntirenganya Rene Promesse{" "}
+              Mutuyimana Alice Developer{" "}
               <span className="text-sm md:text-[16px] lg:text-[1.2rem] 2xl:text-[1.4rem] font-normal capitalize">
                 is the best known as:
               </span>

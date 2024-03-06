@@ -3,8 +3,8 @@
 
 RUN 
 
-git clone https://github.com/renepromesse/rene-yin-yang.git
-cd rene-yin-yang
+git clone https://github.com/AliceDeveloper/Alice-yin-yang.git
+cd Alice-yin-yang
 npm install
 npm run dev 
 

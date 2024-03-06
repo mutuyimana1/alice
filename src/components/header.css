@@ -28,7 +28,7 @@ body {
 }
 
 .homeContainer::before {
-    content: "Ntirenganya Promesse";
+    content: "Mutuyimana Developer";
     font-size: 15px;
     color: black;
     left: 5%;
